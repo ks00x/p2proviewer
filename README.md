@@ -5,6 +5,10 @@
 - temperature in Celsius
 - streamlit app [Streamlit • A faster way to build and share data apps](https://streamlit.io/)
 
+💡 a quick tip:
+You can open the csv image file in [ImageJ](https://imagej.net/ij/index.html) (import text image) and do more interesting things directly with the temperature data. Linescan profiles for example.
+
+
 [live version of the app](https://p2proviewer.streamlit.app/)
 
 
