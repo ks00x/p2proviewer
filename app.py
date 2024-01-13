@@ -22,11 +22,11 @@ with st.sidebar:
     colorscales = px.colors.named_colorscales()
     st.selectbox('color map',colorscales,key='colorscale',index=19) 
     rotation = st.selectbox('rotate image',(0,90,180,270))    
-    print(rotation)
+    orgimg = st.checkbox('show video image?',value=True)
 
 upload = st.file_uploader('upload P2pro thermal image jpg file',('jpg','jpeg'))
 if upload :    
-    im = p2pro_image(io.BytesIO(upload.getbuffer()))
+    im,im2 = p2pro_image(io.BytesIO(upload.getbuffer()))
     if rotation > 0 :
         im = np.rot90(im)  
     if rotation > 90 :
@@ -41,9 +41,13 @@ if upload :
     os.remove(session.uid)
     st.download_button('Download CSV', csv,file_name=upload.name.replace('.jpg','.csv'))
 
-    fig = px.imshow(im,aspect='equal',color_continuous_scale=session.colorscale) #,labels = labels)  
+    fig = px.imshow(im,aspect='equal',color_continuous_scale=session.colorscale,title='Temperature in C from raw data') #,labels = labels)  
     fig.update_layout(height=800)
     st.plotly_chart(fig,use_container_width=True)
 
-    
+    if orgimg :
+        fig = px.imshow(im2,aspect='equal',color_continuous_scale=session.colorscale,title='camera video image') #,labels = labels)  
+        fig.update_layout(height=800)
+        st.plotly_chart(fig,use_container_width=True)
+        
         
