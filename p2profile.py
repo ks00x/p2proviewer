@@ -2,8 +2,11 @@ from PIL import Image
 import numpy as np
 
 
-''' 
+''' references
 https://www.eevblog.com/forum/thermal-imaging/infiray-and-their-p2-pro-discussion/200/
+
+played around with the code given here: 
+https://exiftool.org/forum/index.php?topic=11401.msg61816#msg61816
 
 '''
 
@@ -22,7 +25,7 @@ def p2pro_image(fileobj):
 
 def main():
     import matplotlib.pyplot as plt
-    temps = p2pro_image('test6.jpg')
+    temps,org = p2pro_image('test6.jpg')
     print(temps.min(),temps.max())
     plt.imshow(temps, cmap="inferno")
     plt.show()

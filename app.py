@@ -33,7 +33,7 @@ if upload :
         im = np.rot90(im)          
 
     # convert to csv string
-    x = np.savetxt(session.uid, im, delimiter=',')
+    x = np.savetxt(session.uid, im, delimiter=',',fmt='%1.3f')
     with open(session.uid) as f:
         csv = f.read()
     os.remove(session.uid)
