@@ -8,7 +8,8 @@ https://www.eevblog.com/forum/thermal-imaging/infiray-and-their-p2-pro-discussio
 '''
 
 def p2pro_image(fileobj):
-    'extracts the raw data from a p2pro file and returns the temperature map in Celsius'
+    '''extracts the raw data from a p2pro file and returns a tuple with 
+    the temperature map in Celsius and the in camera processed image'''
     im = Image.open(fileobj)
     a = im.applist[2][1]
     for i in range(3, 7):
@@ -16,7 +17,7 @@ def p2pro_image(fileobj):
     # https://pillow.readthedocs.io/en/stable/handbook/concepts.html#concept-modes    
     img = Image.frombytes('I;16N' , (256, 192), a[0xC000*2:])
     temps = np.array(img,dtype=np.int32) 
-    return (temps / 64) - 273.15,im
+    return (temps / 64) - 273.15 , im
 
 
 def main():
