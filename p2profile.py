@@ -1,13 +1,11 @@
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 ''' 
 https://www.eevblog.com/forum/thermal-imaging/infiray-and-their-p2-pro-discussion/200/
 
 '''
-
 
 def p2pro_image(filename):
     'extracts the raw data from a p2pro file and returns the temperature map in Celsius'
@@ -23,6 +21,7 @@ def p2pro_image(filename):
 
 
 def main():
+    import matplotlib.pyplot as plt
     temps = p2pro_image('test6.jpg')
     print(temps.min(),temps.max())
     plt.imshow(temps, cmap="inferno")
