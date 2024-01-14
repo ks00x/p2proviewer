@@ -9,7 +9,11 @@ https://exiftool.org/forum/index.php?topic=11401.msg61816#msg61816
 
 '''
 
-def p2pro_image(fileobj):
+def c_to_f(x):
+    return x * 1.8 + 32
+
+
+def p2pro_image(fileobj,fahrenheit=False):
     '''extracts the raw data from a p2pro file and returns a tuple with 
     the temperature map in Celsius and the in camera processed image'''
     im = Image.open(fileobj)
@@ -20,7 +24,11 @@ def p2pro_image(fileobj):
     img = Image.frombytes('I;16N' , (256, 192), a[0xC000*2:])
     temps = np.array(img,dtype=np.int32)
     temps = np.rot90(temps,3)
-    return (temps / 64) - 273.15 , im
+    temps = (temps / 64) - 273.15
+    if fahrenheit :        
+        return c_to_f(temps) , im
+    else :
+        return temps, im
 
 
 def main():

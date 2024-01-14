@@ -22,7 +22,7 @@ if up is not None:
         with ZipFile(stream, mode="w",compression=ZIP_DEFLATED, compresslevel=9) as archive:
             for f in up :
                 try:
-                    data,_ = p2pro_image(f)
+                    data,_ = p2pro_image(f,session.fahrenheit)
                     csv = np_to_csv_stream(data)
                     archive.writestr(f.name.replace('.jpg','.csv'),csv)                                    
                 except:

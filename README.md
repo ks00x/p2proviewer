@@ -4,6 +4,7 @@
 - save temperature data as csv file
 - temperature in Celsius
 - set a manual temperature range
+- T in C or F
 - on the sidebar menu one can access a multi file csv conversion tool
 - streamlit app (`pip install streamlit`) [Streamlit • A faster way to build and share data apps](https://streamlit.io/). Start the script with `streamlit run app.py`
 
