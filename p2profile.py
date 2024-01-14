@@ -1,7 +1,6 @@
 from PIL import Image
 import numpy as np
 
-
 ''' references
 https://www.eevblog.com/forum/thermal-imaging/infiray-and-their-p2-pro-discussion/200/
 

@@ -5,7 +5,6 @@ import numpy as np
 from p2profile import p2pro_image
 from np_to_stream import np_to_csv_stream
 
-
 st.set_page_config('P2Pro thermal image to csv coverter',initial_sidebar_state="expanded",page_icon='💾')
 session = st.session_state
 
@@ -15,7 +14,7 @@ st.write('''
          '''
          )
 
-up = st.file_uploader('multi upload test',accept_multiple_files=True,)
+up = st.file_uploader('multi upload P2Pro jpg files',accept_multiple_files=True,)
 if up is not None:
     if len(up) > 0 : # up is a list of files with this option
         stream = BytesIO()     
