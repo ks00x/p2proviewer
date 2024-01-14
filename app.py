@@ -45,6 +45,7 @@ if upload :
         fig = px.imshow(im,aspect='equal',color_continuous_scale=session.colorscale,title=title,zmin=session.tmin,zmax=session.tmax)  
     fig.update_layout(height=height)
     st.plotly_chart(fig,use_container_width=True)
+    st.write(f"min = {im.min():1.2f}, max = {im.max():1.2f}, mean = {im.mean():1.2f}")
 
     if orgimg :
         fig = px.imshow(im2,aspect='equal',color_continuous_scale=session.colorscale,title='camera video image')
