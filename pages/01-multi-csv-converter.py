@@ -1,5 +1,5 @@
 import streamlit as st
-from zipfile import ZipFile
+from zipfile import ZipFile, ZIP_DEFLATED
 from io import BytesIO
 import uuid
 import numpy as np
@@ -23,8 +23,8 @@ up = st.file_uploader('multi upload test',accept_multiple_files=True,)
 if up is not None:
     if len(up) > 0 : # up is a list of files with this option
         stream = BytesIO()     
-        errlist = []   
-        with ZipFile(stream, mode="w") as archive:
+        errlist = []
+        with ZipFile(stream, mode="w",compression=ZIP_DEFLATED, compresslevel=9) as archive:
             for f in up :
                 try:
                     data,_ = p2pro_image(f)
