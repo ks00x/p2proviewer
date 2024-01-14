@@ -3,10 +3,10 @@
 - visualize data
 - save temperature data as csv file
 - temperature in Celsius
-- streamlit app [Streamlit • A faster way to build and share data apps](https://streamlit.io/)
+- streamlit app (`pip install streamlit`) [Streamlit • A faster way to build and share data apps](https://streamlit.io/). Start the script with `streamlit run app.py`
 
 💡 a quick tip:
-You can open the csv image file in [ImageJ](https://imagej.net/ij/index.html) (import text image) and do more interesting things directly with the temperature data. Linescan profiles for example.
+You can open the downloaded csv image file in [ImageJ](https://imagej.net/ij/index.html) (`file->import text image`) and do more interesting things directly with the temperature data. Linescan profiles for example.
 
 
 [live version of the app](https://p2proviewer.streamlit.app/)
