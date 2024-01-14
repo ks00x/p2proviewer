@@ -19,7 +19,8 @@ def p2pro_image(fileobj):
         a += im.applist[i][1]
     # https://pillow.readthedocs.io/en/stable/handbook/concepts.html#concept-modes    
     img = Image.frombytes('I;16N' , (256, 192), a[0xC000*2:])
-    temps = np.array(img,dtype=np.int32) 
+    temps = np.array(img,dtype=np.int32)
+    temps = np.rot90(temps,3)
     return (temps / 64) - 273.15 , im
 
 

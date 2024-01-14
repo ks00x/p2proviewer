@@ -1,17 +1,13 @@
 import streamlit as st
 from zipfile import ZipFile, ZIP_DEFLATED
 from io import BytesIO
-import uuid
 import numpy as np
-import os
 from p2profile import p2pro_image
 from np_to_stream import np_to_csv_stream
 
 
 st.set_page_config('P2Pro thermal image to csv coverter',initial_sidebar_state="expanded",page_icon='💾')
 session = st.session_state
-if 'uid' not in session:
-    session.uid = str(uuid.uuid4())
 
 st.write('''
          ## convert multiple uploaded P2Pro jpeg files into csv files with thermal data and download all as a zip file

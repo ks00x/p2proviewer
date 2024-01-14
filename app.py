@@ -1,8 +1,6 @@
 import numpy as np
 import streamlit as st
 import io
-import uuid
-import os
 import plotly.express as px
 from p2profile import p2pro_image
 from np_to_stream import np_to_csv_stream
@@ -21,12 +19,12 @@ with st.sidebar:
 upload = st.file_uploader('upload P2pro thermal image jpg file',('jpg','jpeg'))
 if upload :    
     im,im2 = p2pro_image(io.BytesIO(upload.getbuffer()))
-    if rotation > 0 :
+    if rotation == 90 :
         im = np.rot90(im)  
-    if rotation > 90 :
-        im = np.rot90(im)  
-    if rotation > 180 :
-        im = np.rot90(im)          
+    if rotation == 180 :
+        im = np.rot90(im,2)  
+    if rotation == 270 :
+        im = np.rot90(im,3)          
 
     csv = np_to_csv_stream(im) 
     st.download_button('Download CSV', csv,file_name=upload.name.replace('.jpg','.csv'))
