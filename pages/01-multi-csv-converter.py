@@ -7,7 +7,9 @@ from np_to_stream import np_to_csv_stream
 
 st.set_page_config('P2Pro thermal image to csv coverter',initial_sidebar_state="expanded",page_icon='💾')
 session = st.session_state
-
+for k in session.keys():
+    session[k] = session[k]
+    
 st.write('''
          ## convert multiple uploaded P2Pro jpeg files into csv files with thermal data and download all as a zip file
          - press F5 to clear the whole list!

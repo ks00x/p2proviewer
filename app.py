@@ -7,25 +7,38 @@ from np_to_stream import np_to_csv_stream
 
 st.set_page_config('P2Pro thermal image viewer',initial_sidebar_state="expanded",page_icon='🌡')
 session = st.session_state
+if 'units' not in session : # init
+    session.upload = None
+    session.units = 'Celsius'
+    session.colorscale = 'jet'
+    session.rotaion = 0
+    session.autoscale = True
+    session.tmax = 50
+    session.tmin = 20
+else :
+    for k in session.keys():
+        session[k] = session[k]
 
 with st.sidebar:
     st.markdown('### extract the raw thermal data from an Infiray P2Pro camera')
     colorscales = px.colors.named_colorscales()
-    st.selectbox('units',('Celsius','Fahrenheit'),index=0,key='units')
+    st.selectbox('units',('Celsius','Fahrenheit'),key='units')
     session.fahrenheit = False
     if session.units == 'Fahrenheit' : session.fahrenheit = True
     st.selectbox('color map',colorscales,key='colorscale',index=19) 
     rotation = st.selectbox('rotate image',(0,90,180,270))    
-    orgimg = st.checkbox('show video image?',value=True)
+    orgimg = st.checkbox('show video image?')
     height = st.number_input('image height',value=600,step=100)
-    st.checkbox('autoscale',value=True,key='autoscale')
-    st.number_input('min temp',value=0,key='tmin')
-    st.number_input('max temp',value=60,key='tmax')
+    st.checkbox('autoscale',key='autoscale')
+    st.number_input('min temp',key='tmin')
+    st.number_input('max temp',key='tmax')
 
 
 upload = st.file_uploader('upload P2pro thermal image jpg file',('jpg','jpeg'))
-if upload :    
-    im,im2 = p2pro_image(io.BytesIO(upload.getbuffer()),fahrenheit=session.fahrenheit)
+if upload or session.upload is not None :    
+    if upload :
+        session.upload = upload
+    im,im2 = p2pro_image(io.BytesIO(session.upload.getbuffer()),fahrenheit=session.fahrenheit)
     if rotation == 90 :
         im = np.rot90(im)  
     if rotation == 180 :
@@ -34,7 +47,7 @@ if upload :
         im = np.rot90(im,3)          
 
     csv = np_to_csv_stream(im) 
-    st.download_button('Download CSV', csv,file_name=upload.name.replace('.jpg','.csv'))
+    st.download_button('Download CSV', csv,file_name=session.upload.name.replace('.jpg','.csv'))
     if session.fahrenheit :
         title = 'Temperature in Fahrenheit from raw data'
     else :
