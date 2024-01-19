@@ -26,7 +26,11 @@ if up is not None:
                 try:
                     data,_ = p2pro_image(f,session.fahrenheit)
                     csv = np_to_csv_stream(data)
-                    archive.writestr(f.name.replace('.jpg','.csv'),csv)                                    
+                    if session.fahrenheit :
+                        fname = session.upload.name.replace('.jpg','_F.csv')                        
+                    else :
+                        fname = session.upload.name.replace('.jpg','_C.csv')        
+                    archive.writestr(fname,csv)                                    
                 except:
                     errlist.append(f.name)
         if len(errlist)  > 0 :

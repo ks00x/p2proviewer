@@ -49,11 +49,17 @@ if upload or session.upload is not None :
         im = np.rot90(im,3)          
 
     csv = np_to_csv_stream(im) 
-    st.download_button('Download CSV', csv,file_name=session.upload.name.replace('.jpg','.csv'))
+
+    session.upload.name.replace('.jpg','.csv')
     if session.fahrenheit :
+        fname = session.upload.name.replace('.jpg','_F.csv')
         title = 'Temperature in Fahrenheit from raw data'
     else :
+        fname = session.upload.name.replace('.jpg','_C.csv')
         title = 'Temperature in Celsius from raw data'
+    
+    st.download_button('Download CSV', csv,file_name=fname)
+    
     if session.autoscale :
         fig = px.imshow(im,aspect='equal',color_continuous_scale=session.colorscale,title=title) 
     else :
