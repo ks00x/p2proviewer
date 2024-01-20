@@ -1,4 +1,6 @@
 import streamlit as st
+import plotly.express as px
+
 about = '''
 ### viewer and raw converter for jpg files created by the Infiray P2Pro infrared camera using the original software
 Klaus Schwarzburg 2024
@@ -14,3 +16,7 @@ for k in session.keys():
     session[k] = session[k]
 
 st.write(about)
+
+st.write('### available colormaps')
+fig = px.colors.sequential.swatches_continuous()
+st.plotly_chart(fig)
