@@ -3,7 +3,7 @@ import plotly.express as px
 
 about = '''
 ### viewer and raw converter for jpg files created by the Infiray P2Pro infrared camera using the original software
-[github ks00x/p2proviewer](https://github.com/ks00x/p2proviewer)
+[see the source code on github ks00x/p2proviewer](https://github.com/ks00x/p2proviewer)
 
 Klaus Schwarzburg 2024
 
