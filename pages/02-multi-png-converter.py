@@ -44,22 +44,16 @@ if up is not None:
                         im = np.rot90(im,2)  
                     if session.rotation == 270 :
                         im = np.rot90(im,3)   
-                    if session.fahrenheit :
-                        fname = session.upload.name.replace('.jpg','_F.csv')
-                        title = 'Temperature in Fahrenheit from raw data'
-                    else :
-                        fname = session.upload.name.replace('.jpg','_C.csv')
-                        title = 'Temperature in Celsius from raw data'
                     png.seek(0)
                     if session.autoscale :
                         plt.imsave(png,im,format='png', cmap=cmap)                         
                     else :
                         plt.imsave(png,im,format='png',vmin=session.tmin,vmax=session.tmax, cmap=cmap)  
-                    png.seek(0)
+                    png.seek(0)                                                                           
                     if session.fahrenheit :
                         fname = f.name.replace('.jpg','_F.png')                        
                     else :
-                        fname = f.name.replace('.jpg','_C.png')                                                        
+                        fname = f.name.replace('.jpg','_C.png')                        
                     archive.writestr(fname,png.read())    
                 except Exception as e:
                     print(e)
