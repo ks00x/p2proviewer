@@ -13,6 +13,8 @@ Klaus Schwarzburg 2024
 
 💡 Use the 'blackbody' profile to indicate highlight cliping when using a manual temperature scale
 
+💡 Check out [this repo](https://github.com/ks00x/p2pro-live) for a Python/Streamlit app to use the P2Pro on the Windows desktop
+
 
 '''
 session = st.session_state
