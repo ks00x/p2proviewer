@@ -1,11 +1,11 @@
 # p2proviewer
-- extract the raw data out of Infiray P2Pro thermal camera jpeg images
+- extract the 192x256 pixel raw data out of Infiray P2Pro thermal camera jpeg images
 - visualize data
-- save temperature data as csv file
-- temperature in Celsius
+- save temperature data as csv or png file
+- temperature in Celsius or Fahrenheit
 - set a manual temperature range
-- T in C or F
-- on the sidebar menu one can access a multi file csv conversion tool
+- many color maps available
+- on the sidebar menu one can access a multi file csv/png conversion tools
 - streamlit app (`pip install streamlit`) [Streamlit • A faster way to build and share data apps](https://streamlit.io/). Start the script with `streamlit run app.py`
 
 💡 a quick tip:

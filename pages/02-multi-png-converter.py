@@ -7,7 +7,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 
-st.set_page_config('P2Pro thermal image converter',initial_sidebar_state="expanded",page_icon='💾')
+st.set_page_config('P2Pro thermal image png converter',initial_sidebar_state="expanded",page_icon='💾')
 session = st.session_state
 for k in session.keys():
     session[k] = session[k]
@@ -16,8 +16,8 @@ st.write('''
          ## regenerate multiple uploaded P2Pro jpeg files using the settings from the main page and download all as a zip file
          - press F5 to clear the whole list!
          - generates png files with original sensor pixel size (192 x 256) without colorbar
-         - uses the  scaling, rotation and colormap settings from the main page
-         - usefull to display a bunch of thermal images with the same temperature range (manual scaling)
+         - uses the  scaling, rotation, units and colormap settings from the main page
+         - useful to display a bunch of thermal images with the same temperature range (manual scaling)
          '''
          )
 

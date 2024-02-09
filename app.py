@@ -29,7 +29,7 @@ with st.sidebar:
     if session.units == 'Fahrenheit' : session.fahrenheit = True
     st.selectbox('color map',colorscales,key='colorscale') 
     st.selectbox('rotate image',(0,90,180,270),key='rotation')    
-    st.checkbox('show video image?',key='orgimg')
+    st.checkbox('show camera rendered image?',key='orgimg')
     st.number_input('image height',step=100,key='height')
     st.checkbox('autoscale',key='autoscale')
     st.number_input('min temp',key='tmin')

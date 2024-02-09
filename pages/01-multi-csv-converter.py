@@ -11,7 +11,7 @@ for k in session.keys():
     session[k] = session[k]
     
 st.write('''
-         ## convert multiple uploaded P2Pro jpeg files into csv files with thermal data and download all as a zip file
+         ## convert multiple uploaded P2Pro jpeg files into csv text files with thermal data and download all as a zip file
          - press F5 to clear the whole list!
          '''
          )
