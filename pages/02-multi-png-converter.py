@@ -44,7 +44,7 @@ if up is not None:
                         im = np.rot90(im,2)  
                     if session.rotation == 270 :
                         im = np.rot90(im,3)   
-                    png.seek(0)
+                    png.seek(0)                    
                     if session.autoscale :
                         plt.imsave(png,im,format='png', cmap=cmap)                         
                     else :
@@ -55,6 +55,7 @@ if up is not None:
                     else :
                         fname = f.name.replace('.jpg','_C.png')                        
                     archive.writestr(fname,png.read())    
+                    png.flush()
                 except Exception as e:
                     print(e)
                     errlist.append(f.name)

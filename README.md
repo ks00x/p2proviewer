@@ -15,4 +15,4 @@ You can open the downloaded csv image file in [ImageJ](https://imagej.net/softwa
 [live version of the app](https://p2proviewer.streamlit.app/)
 
 
-![app](media/Screenshot.png)
+![app](media/screenshot.png)

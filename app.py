@@ -10,7 +10,7 @@ session = st.session_state
 if 'units' not in session : # init
     session.upload = None
     session.units = 'Celsius'
-    session.colorscale = 'jet'
+    session.colorscale = 'icefire'
     session.rotation = 0
     session.autoscale = True
     session.tmax = 50
