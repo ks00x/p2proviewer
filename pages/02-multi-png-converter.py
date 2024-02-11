@@ -14,10 +14,10 @@ for k in session.keys():
     
 st.write('''
          ## regenerate multiple uploaded P2Pro jpeg files using the settings from the main page and download all as a zip file
-         - press F5 to clear the whole list!
          - generates png files with original sensor pixel size (192 x 256) without colorbar
          - uses the  scaling, rotation, units and colormap settings from the main page
          - useful to display a bunch of thermal images with the same temperature range (manual scaling)
+         - press F5 to clear the whole list!
          '''
          )
 

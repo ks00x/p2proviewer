@@ -7,6 +7,7 @@ https://www.eevblog.com/forum/thermal-imaging/infiray-and-their-p2-pro-discussio
 played around with the code given here: 
 https://exiftool.org/forum/index.php?topic=11401.msg61816#msg61816
 
+tested with pillow version 10.0.1
 '''
 
 def c_to_f(x):
