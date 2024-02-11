@@ -11,6 +11,8 @@
 💡 a quick tip:
 You can open the downloaded csv image file in [ImageJ](https://imagej.net/software/imagej/) (`file->import text image`) and do more interesting things directly with the temperature data. Linescan profiles for example.
 
+🧨 Warning: If you update or add metadata with Photo tools like Lightroom, Digikam etc, the import might stop to work!!! Leave the original jpgs alone!
+
 
 [live version of the app](https://p2proviewer.streamlit.app/)
 
