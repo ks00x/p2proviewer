@@ -22,6 +22,9 @@ specific areas in high detail!
 
 💡 Check out [this repo](https://github.com/ks00x/p2pro-live) for a Python/Streamlit app to use the P2Pro on the Windows desktop PC
 
+💥Always keep an unmodfied version of your camera files. If you modify your P2Pro jpeg files (resize, xml,iptc, etc metadata), 
+the raw data import is likely to fail!
+
 
 '''
 session = st.session_state
