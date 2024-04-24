@@ -16,7 +16,7 @@ def c_to_f(x):
 
 def p2pro_image(fileobj,fahrenheit=False):
     '''extracts the raw data from a p2pro file and returns a tuple with 
-    the temperature map in Celsius and the in camera processed image'''
+    the temperature map in Celsius (256x192 pixels) and the in camera processed image as numpy arrays'''
     im = Image.open(fileobj)
     a = im.applist[2][1]
     for i in range(3, 7):
